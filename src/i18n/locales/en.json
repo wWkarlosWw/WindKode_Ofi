@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "inicio": "Home",
+    "proyectos": "Projects",
+    "contacto": "Contact",
+    "menu": "Menu"
+  },
+  "hero": {
+    "badge": "Tailwind for your next project",
+    "titulo1": "Custom software",
+    "titulo2": "with the",
+    "titulo3": "agility of the wind",
+    "subtitulo": "At WindKode we build lightweight, fast and accessible applications that solve each user's specific needs.",
+    "cta_primary": "View projects",
+    "cta_secondary": "Get in touch"
+  },
+  "section": {
+    "proyectos": {
+      "titulo": "Featured projects",
+      "subtitulo": "Lightweight, fast and accessible applications that solve real needs."
+    },
+    "filosofia": {
+      "titulo": "Our philosophy",
+      "subtitulo": "Solid code, exceptional teamwork."
+    }
+  },
+  "filosofia": {
+    "rapido": {
+      "titulo": "Fast",
+      "descripcion": "Optimized applications that load in the blink of an eye."
+    },
+    "seguro": {
+      "titulo": "Secure",
+      "descripcion": "Robust code and best practices from the first commit."
+    },
+    "colaborativo": {
+      "titulo": "Collaborative",
+      "descripcion": "Exceptional teamwork, with you as part of the process."
+    }
+  },
+  "proyectos": {
+    "titulo": "Projects",
+    "subtitulo": "Every project is a story of code, design and collaboration.",
+    "vacio": "We will share our projects here soon."
+  },
+  "proyecto": {
+    "ver": "View project →",
+    "repositorio": "Repository →"
+  },
+  "contacto": {
+    "titulo": "Contact",
+    "subtitulo": "Tell us your idea and we'll turn it into software.",
+    "email_texto": "Or write us directly at"
+  },
+  "formulario": {
+    "nombre": {
+      "label": "Name",
+      "placeholder": "Your name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "your email address"
+    },
+    "mensaje": {
+      "label": "Message",
+      "placeholder": "Tell us about your project..."
+    },
+    "enviar": "Send message",
+    "exito": {
+      "titulo": "Message sent",
+      "mensaje": "Thank you for contacting us. We'll get back to you soon."
+    }
+  },
+  "footer": {
+    "copyright": "© {year} WindKode. All rights reserved.",
+    "hecho": "Made with",
+    "hecho_sufijo": "and a fair wind."
+  },
+  "meta": {
+    "descripcion": "WindKode — Custom software with the agility of the wind. Lightweight, fast and accessible applications.",
+    "titulo": "WindKode — Agile custom software"
+  },
+  "projects_data": {
+    "windkode_landing": {
+      "title": "WindKode Landing",
+      "description": "WindKode corporate website. Lightweight and fast application built with Vue 3 and TailwindCSS."
+    }
+  }
+}

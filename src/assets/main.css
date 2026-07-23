@@ -1,52 +1,54 @@
-@import 'tailwindcss';
-@import './base.css';
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "tailwindcss";
 
 @theme {
-  --color-midnight-blue: #1C2E4A;
-  --color-dusty-blue: #52677D;
-  --color-ivory: #BDC4D4;
-  --color-deep-navy: #0F1A2B;
-  --color-buttercream: #D1CFC9;
+  --color-midnight-blue: #1c2e4a;
+  --color-dusty-blue: #52677d;
+  --color-ivory: #bdc4d4;
+  --color-deep-navy: #0f1a2b;
+  --color-buttercream: #d1cfc9;
+  --font-display: "Bebas Neue", sans-serif;
+  --font-headline: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
 }
 
 :root {
-  --midnight-blue: #1C2E4A;
-  --dusty-blue: #52677D;
-  --ivory: #BDC4D4;
-  --deep-navy: #0F1A2B;
-  --buttercream: #D1CFC9;
+  --midnight-blue: #1c2e4a;
+  --dusty-blue: #52677d;
+  --ivory: #bdc4d4;
+  --deep-navy: #0f1a2b;
+  --buttercream: #d1cfc9;
+  --font-display: "Bebas Neue", sans-serif;
+  --font-headline: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #020617;
+  color: #cbd5e1;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+  width: 100%;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+::selection {
+  background-color: rgba(56, 189, 248, 0.3);
+  color: #ffffff;
 }

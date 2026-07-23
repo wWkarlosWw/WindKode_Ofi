@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "inicio": "Inicio",
+    "proyectos": "Proyectos",
+    "contacto": "Contacto",
+    "menu": "Menú"
+  },
+  "hero": {
+    "badge": "Viento a favor para tu próximo proyecto",
+    "titulo1": "Software a medida",
+    "titulo2": "con la",
+    "titulo3": "agilidad del viento",
+    "subtitulo": "En WindKode creamos aplicaciones ligeras, veloces y accesibles que resuelven las necesidades específicas de cada usuario.",
+    "cta_primary": "Ver proyectos",
+    "cta_secondary": "Contactar"
+  },
+  "section": {
+    "proyectos": {
+      "titulo": "Proyectos destacados",
+      "subtitulo": "Aplicaciones ligeras, veloces y accesibles que resuelven necesidades reales."
+    },
+    "filosofia": {
+      "titulo": "Nuestra filosofía",
+      "subtitulo": "Código sólido, trabajo en equipo excepcional."
+    }
+  },
+  "filosofia": {
+    "rapido": {
+      "titulo": "Rápido",
+      "descripcion": "Aplicaciones optimizadas que cargan en un abrir y cerrar de ojos."
+    },
+    "seguro": {
+      "titulo": "Seguro",
+      "descripcion": "Código robusto y buenas prácticas desde el primer commit."
+    },
+    "colaborativo": {
+      "titulo": "Colaborativo",
+      "descripcion": "Trabajo en equipo excepcional, contigo como parte del proceso."
+    }
+  },
+  "proyectos": {
+    "titulo": "Proyectos",
+    "subtitulo": "Cada proyecto es una historia de código, diseño y colaboración.",
+    "vacio": "Pronto compartiremos nuestros proyectos aquí."
+  },
+  "proyecto": {
+    "ver": "Ver proyecto →",
+    "repositorio": "Repositorio →"
+  },
+  "contacto": {
+    "titulo": "Contacto",
+    "subtitulo": "Cuéntanos tu idea y la convertimos en software.",
+    "email_texto": "O escríbenos directamente a"
+  },
+  "formulario": {
+    "nombre": {
+      "label": "Nombre",
+      "placeholder": "Tu nombre"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "tu correo electrónico"
+    },
+    "mensaje": {
+      "label": "Mensaje",
+      "placeholder": "Cuéntanos sobre tu proyecto..."
+    },
+    "enviar": "Enviar mensaje",
+    "exito": {
+      "titulo": "Mensaje enviado",
+      "mensaje": "Gracias por contactarnos. Te responderemos pronto."
+    }
+  },
+  "footer": {
+    "copyright": "© {year} WindKode. Todos los derechos reservados.",
+    "hecho": "Hecho con",
+    "hecho_sufijo": "y mucho viento a favor."
+  },
+  "meta": {
+    "descripcion": "WindKode — Software a medida con la agilidad del viento. Aplicaciones ligeras, veloces y accesibles.",
+    "titulo": "WindKode — Software ágil a medida"
+  },
+  "projects_data": {
+    "windkode_landing": {
+      "title": "WindKode Landing",
+      "description": "Sitio corporativo de WindKode. Aplicación ligera y rápida construida con Vue 3 y TailwindCSS."
+    }
+  }
+}

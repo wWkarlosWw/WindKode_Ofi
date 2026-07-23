@@ -1,42 +1,109 @@
-# project-name
+# WindKode Portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+> **Desarrollamos software a medida y automatizamos procesos con la agilidad del viento.**
+> En WindKode entregamos aplicaciones ligeras, veloces y accesibles que resuelven las necesidades específicas de cada usuario, respaldadas por un código sólido y un trabajo en equipo excepcional.
 
-## Recommended IDE Setup
+## Stack
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+| Tecnología | Uso |
+|---|---|
+| **Vue 3** (Composition API + `<script setup>`) | Framework UI |
+| **TypeScript** | Tipado estático |
+| **Vite 8** | Bundler y dev server |
+| **TailwindCSS v4** | Estilos utilitarios |
+| **Vue Router 4** | Enrutamiento SPA |
+| **Pinia** | Estado global |
+| **vue-i18n v11** | Internacionalización (ES/EN) |
 
-## Recommended Browser Setup
+## Arquitectura
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```
+front/
+├── public/                  # Archivos estáticos
+├── src/
+│   ├── assets/              # Estilos e imágenes
+│   ├── components/
+│   │   ├── ui/              # Componentes base atómicos (Button, Card, Badge)
+│   │   ├── layout/          # Layout global (Navbar, Footer, Section)
+│   │   └── shared/          # Componentes de negocio (ProjectCard, ContactForm)
+│   ├── composables/         # Lógica reactiva reutilizable
+│   ├── i18n/                # Internacionalización
+│   │   ├── index.ts         # Configuración de vue-i18n
+│   │   └── locales/         # Traducciones ES/EN
+│   ├── router/              # Definición de rutas
+│   ├── services/            # Capa de datos (API / mock)
+│   ├── stores/              # Estado global (Pinia)
+│   ├── types/               # Interfaces y tipos TS
+│   └── views/               # Páginas (Home, Projects, Contact)
+├── .env.example
+├── index.html
+├── vite.config.ts
+└── tsconfig*.json
 ```
 
-### Compile and Hot-Reload for Development
+**Flujo de datos:** `View → Composable → Service → Store`  
+**Componentes:** solo reciben `props` y emiten eventos. Sin lógica de negocio.
 
-```sh
-npm run dev
+## Internacionalización (i18n)
+
+Soporte para **español** e **inglés** usando `vue-i18n v11` con Composition API.
+
+### Estructura
+
+```
+src/i18n/
+├── index.ts           # createI18n con locale desde localStorage
+└── locales/
+    ├── es.json        # Traducciones en español
+    └── en.json        # Traducciones en inglés
 ```
 
-### Type-Check, Compile and Minify for Production
+### Funcionamiento
+
+- El idioma se guarda en `localStorage` y persiste entre sesiones.
+- Al cambiar de idioma se actualiza automáticamente el atributo `<html lang>`.
+- El botón **ES/EN** en la Navbar permite alternar entre idiomas al instante.
+- Por defecto se carga español (`es`).
+
+### Uso en componentes
+
+```ts
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+</script>
+
+<template>
+  <p>{{ t('hero.badge') }}</p>
+</template>
+```
+
+### Claves de traducción
+
+Agrupadas por ámbito: `nav`, `hero`, `section`, `filosofia`, `proyectos`, `proyecto`, `contacto`, `formulario`, `footer`, `meta`, `projects_data`.
+
+Ejemplo:
+```json
+{
+  "nav": {
+    "inicio": "Inicio",
+    "proyectos": "Proyectos",
+    "contacto": "Contacto"
+  }
+}
+```
+
+Los datos mock de proyectos también usan i18n para mostrarse en el idioma activo.
+
+## Scripts
 
 ```sh
-npm run build
+npm run dev       # Desarrollo con hot-reload
+npm run build     # Type-check + build producción
+npm run preview   # Vista previa del build
+npm run type-check # Solo type-check
 ```
+
+## Misión
+
+> Desarrollar software a medida y automatizar procesos con la agilidad del viento. En WindKode, entregamos aplicaciones ligeras, veloces y accesibles que resuelven las necesidades específicas de cada usuario, respaldadas por un código sólido y un trabajo en equipo excepcional.
