@@ -1,0 +1,138 @@
+{
+  "nav": {
+    "servicios": "Servicios",
+    "nosotros": "Nosotros",
+    "equipo": "Equipo",
+    "proyectos": "Proyectos",
+    "contacto": "Contacto",
+    "agenda": "Agenda una cita",
+    "menu": "Menú"
+  },
+  "hero": {
+    "kicker": "Software que impulsa tu negocio",
+    "titulo_l1": "Software",
+    "titulo_l2": "a medida",
+    "subtitulo": "Desarrollamos software a medida y automatizamos procesos con la agilidad del viento. Aplicaciones ligeras, veloces y accesibles, respaldadas por un código sólido y un trabajo en equipo excepcional.",
+    "cta_agenda": "Agenda una cita",
+    "cta_proyectos": "Ver proyectos"
+  },
+  "home": {
+    "ver_servicios": "Ver todos los servicios"
+  },
+  "stats": {
+    "proyectos": "Proyectos entregados",
+    "clientes": "Clientes satisfechos",
+    "automatizacion": "Automatización activa",
+    "tecnologias": "Tecnologías dominadas"
+  },
+  "servicios": {
+    "kicker": "Nuestros servicios",
+    "titulo": "Lo que hacemos",
+    "subtitulo": "Soluciones tecnológicas a medida que impulsan tu negocio con la agilidad del viento.",
+    "items": {
+      "web": {
+        "titulo": "Desarrollo Web y Móvil",
+        "descripcion": "Creamos aplicaciones y plataformas ligeras, rápidas y accesibles. Llevamos tu idea a la pantalla de cualquier dispositivo con un diseño intuitivo y un código impecable."
+      },
+      "ia": {
+        "titulo": "Automatización e Inteligencia Artificial",
+        "descripcion": "Tu tiempo es valioso. Eliminamos las tareas manuales de tu empresa automatizando procesos e integrando agentes de IA que trabajan por ti 24/7."
+      },
+      "apis": {
+        "titulo": "APIs e Integraciones",
+        "descripcion": "Hacemos que tus herramientas se comuniquen entre sí. Conectamos tus sistemas actuales para que la información fluya sin barreras ni interrupciones."
+      },
+      "cloud": {
+        "titulo": "Migraciones y Modernización",
+        "descripcion": "Dale un respiro a tu infraestructura. Migramos tus sistemas antiguos a tecnologías modernas o a la nube para hacerlos más seguros, eficientes y escalables."
+      },
+      "consultoria": {
+        "titulo": "Consultoría Tecnológica",
+        "descripcion": "Te guiamos en cada paso. Analizamos tu negocio y trazamos la ruta tecnológica más rápida y efectiva para lograr tu transformación digital."
+      }
+    }
+  },
+  "nosotros": {
+    "kicker": "Sobre nosotros",
+    "titulo": "Agilidad, código sólido y equipo excepcional",
+    "p1": "En WindKode desarrollamos software a medida y automatizamos procesos con la agilidad del viento. Entregamos aplicaciones ligeras, veloces y accesibles que resuelven las necesidades específicas de cada usuario.",
+    "p2": "Detrás de cada proyecto hay un código sólido, buenas prácticas desde el primer commit y un trabajo en equipo excepcional, contigo como parte del proceso."
+  },
+  "filosofia": {
+    "rapido": {
+      "titulo": "Rápido",
+      "descripcion": "Aplicaciones optimizadas que cargan en un abrir y cerrar de ojos."
+    },
+    "seguro": {
+      "titulo": "Seguro",
+      "descripcion": "Código robusto y buenas prácticas desde el primer commit."
+    },
+    "colaborativo": {
+      "titulo": "Colaborativo",
+      "descripcion": "Trabajo en equipo excepcional, contigo como parte del proceso."
+    }
+  },
+  "equipo": {
+    "kicker": "Nuestro equipo",
+    "titulo": "Las personas detrás del viento",
+    "subtitulo": "Un equipo pequeño, ágil y obsesionado con la calidad.",
+    "roles": {
+      "fundador": "Fundador · Desarrollador Full-Stack",
+      "frontend": "Desarrollo Frontend · UI/UX",
+      "backend": "Desarrollo Backend · Automatización"
+    }
+  },
+  "proyectos": {
+    "kicker": "Trabajo destacado",
+    "titulo": "Proyectos",
+    "subtitulo": "Cada proyecto es una historia de código, diseño y colaboración.",
+    "vacio": "Pronto compartiremos nuestros proyectos aquí."
+  },
+  "proyecto": {
+    "ver": "Ver proyecto",
+    "repositorio": "Repositorio"
+  },
+  "agenda": {
+    "kicker": "Agenda una cita",
+    "titulo_l1": "Creemos algo",
+    "titulo_l2": "extraordinario",
+    "subtitulo": "Cuéntanos tu idea y la convertimos en software. Agenda una llamada sin compromiso y trazamos juntos la ruta de tu proyecto.",
+    "email_label": "Escríbenos",
+    "respuesta": "Respondemos en menos de 24 horas."
+  },
+  "formulario": {
+    "nombre": {
+      "label": "Nombre",
+      "placeholder": "Tu nombre"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "tu correo electrónico"
+    },
+    "mensaje": {
+      "label": "Mensaje",
+      "placeholder": "Cuéntanos sobre tu proyecto..."
+    },
+    "enviar": "Enviar mensaje",
+    "exito": {
+      "titulo": "Mensaje enviado",
+      "mensaje": "Gracias por contactarnos. Te responderemos pronto."
+    }
+  },
+  "footer": {
+    "copyright": "© {year} WindKode. Todos los derechos reservados.",
+    "hecho": "Hecho con",
+    "hecho_sufijo": "y mucho viento a favor.",
+    "tagline": "Software a medida con la agilidad del viento."
+  },
+  "meta": {
+    "descripcion": "WindKode — Software a medida con la agilidad del viento. Aplicaciones ligeras, veloces y accesibles.",
+    "titulo": "WindKode — Software ágil a medida"
+  },
+  "projects_data": {
+    "windkode_landing": {
+      "title": "WindKode Landing",
+      "description": "Sitio corporativo de WindKode. Aplicación ligera y rápida construida con Vue 3 y TailwindCSS."
+    }
+  }
+}
