@@ -5,6 +5,10 @@ import { AppNavbar, AppFooter } from '@/components/layout'
 
 <template>
   <AppNavbar />
-  <RouterView />
+  <RouterView v-slot="{ Component }">
+    <Transition name="page" mode="out-in">
+      <component :is="Component" />
+    </Transition>
+  </RouterView>
   <AppFooter />
 </template>

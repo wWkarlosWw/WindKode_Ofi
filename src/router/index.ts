@@ -9,17 +9,37 @@ const router = createRouter({
       component: () => import('@/views/HomeView.vue'),
     },
     {
-      path: '/projects',
+      path: '/servicios',
+      name: 'services',
+      component: () => import('@/views/ServicesView.vue'),
+    },
+    {
+      path: '/nosotros',
+      name: 'about',
+      component: () => import('@/views/AboutView.vue'),
+    },
+    {
+      path: '/equipo',
+      name: 'team',
+      component: () => import('@/views/TeamView.vue'),
+    },
+    {
+      path: '/proyectos',
       name: 'projects',
       component: () => import('@/views/ProjectsView.vue'),
     },
     {
-      path: '/contact',
-      name: 'contact',
-      component: () => import('@/views/ContactView.vue'),
+      path: '/agenda',
+      name: 'schedule',
+      component: () => import('@/views/ScheduleView.vue'),
     },
+    { path: '/projects', redirect: '/proyectos' },
+    { path: '/contact', redirect: '/agenda' },
   ],
-  scrollBehavior() {
+  scrollBehavior(to) {
+    if (to.hash) {
+      return { el: to.hash, behavior: 'smooth' }
+    }
     return { top: 0 }
   },
 })

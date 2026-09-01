@@ -8,8 +8,8 @@ defineProps<{
   <span
     class="inline-block rounded-full px-3 py-1 text-xs font-medium"
     :class="[
-      variant === 'skill' && 'bg-sky-500/10 text-sky-400 border border-sky-500/20',
-      variant === 'default' && 'bg-white/10 text-slate-300',
+      variant === 'skill' && 'bg-ink/5 text-silver border border-ink/10',
+      variant === 'default' && 'bg-ink/10 text-silver',
     ]"
   >
     <slot />

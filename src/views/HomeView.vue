@@ -1,101 +1,106 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { usePortfolioStore } from '@/stores/portfolio.store'
-import { AppButton } from '@/components/ui'
-import { AppSection } from '@/components/layout'
-import { ProjectCard } from '@/components/shared'
+import { WLogo, CtaLink } from '@/components/ui'
+import { SectionHeader } from '@/components/layout'
+import { RevealOnScroll, ServiceCard, StatsBar, TechMarquee, CtaBanner } from '@/components/shared'
+import { services } from '@/data'
 
 const { t } = useI18n()
-const portfolio = usePortfolioStore()
 
-onMounted(() => {
-  portfolio.fetchProjects()
-})
+const featuredServices = services.slice(0, 3)
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-950 text-white">
-    <AppSection>
-      <div class="flex flex-col items-center justify-center pt-20 text-center md:pt-32">
-        <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/10 px-4 py-1.5 text-sm text-sky-400">
-          <span class="relative flex size-2">
-            <span class="absolute inline-flex size-full animate-ping rounded-full bg-sky-400 opacity-75" />
-            <span class="relative inline-flex size-2 rounded-full bg-sky-500" />
-          </span>
-          {{ t('hero.badge') }}
+  <main class="overflow-x-clip bg-abyss text-silver">
+    <!-- ============ HERO ============ -->
+    <section class="relative flex min-h-svh flex-col justify-between pt-24">
+      <!-- Fondo: brillos sutiles -->
+      <div class="pointer-events-none absolute inset-0">
+        <div class="absolute -top-40 right-0 size-[36rem] rounded-full bg-carbon/60 blur-[120px]" />
+        <div class="absolute bottom-0 left-0 size-[28rem] rounded-full bg-steel/10 blur-[120px]" />
+      </div>
+
+      <div class="relative mx-auto grid w-full max-w-7xl flex-1 items-center gap-12 px-6 lg:grid-cols-[1.15fr_0.85fr]">
+        <div>
+          <p
+            class="animate-fade-up mb-6 text-xs font-medium uppercase tracking-[0.35em] text-steel"
+            style="animation-delay: 100ms"
+          >
+            {{ t('hero.kicker') }}
+          </p>
+
+          <h1 class="font-display leading-[0.9]">
+            <span class="animate-fade-up text-metal block text-[clamp(4.5rem,13vw,11rem)]" style="animation-delay: 200ms">
+              {{ t('hero.titulo_l1') }}
+            </span>
+            <span class="animate-fade-up text-metal block text-[clamp(4.5rem,13vw,11rem)]" style="animation-delay: 320ms">
+              {{ t('hero.titulo_l2') }}
+            </span>
+          </h1>
+
+          <p
+            class="animate-fade-up mt-8 max-w-xl text-base leading-relaxed text-silver/70 md:text-lg"
+            style="animation-delay: 450ms"
+          >
+            {{ t('hero.subtitulo') }}
+          </p>
+
+          <div class="animate-fade-up mt-10 flex flex-wrap items-center gap-4" style="animation-delay: 580ms">
+            <CtaLink to="/agenda" size="lg">{{ t('hero.cta_agenda') }}</CtaLink>
+            <CtaLink to="/proyectos" variant="outline" size="lg">{{ t('hero.cta_proyectos') }}</CtaLink>
+          </div>
         </div>
 
-        <h1 class="max-w-4xl text-4xl font-bold leading-tight md:text-6xl lg:text-7xl">
-          {{ t('hero.titulo1') }}
-          <br />
-          {{ t('hero.titulo2') }}
-          <span class="text-sky-400"> {{ t('hero.titulo3') }}</span>
-        </h1>
-
-        <p class="mt-6 max-w-2xl text-lg text-slate-400 md:text-xl">
-          {{ t('hero.subtitulo') }}
-        </p>
-
-        <div class="mt-10 flex gap-4">
-          <AppButton variant="primary" size="lg" @click="$router.push('/projects')">
-            {{ t('hero.cta_primary') }}
-          </AppButton>
-          <AppButton variant="secondary" size="lg" @click="$router.push('/contact')">
-            {{ t('hero.cta_secondary') }}
-          </AppButton>
+        <!-- Logo protagonista con órbita -->
+        <div class="animate-fade-in relative hidden items-center justify-center lg:flex" style="animation-delay: 400ms">
+          <div class="animate-spin-slow absolute size-[26rem] rounded-full border border-ink/10" />
+          <div class="absolute size-[26rem]">
+            <span class="absolute left-1/2 top-0 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-silver/80" />
+          </div>
+          <div class="absolute size-[19rem] rounded-full border border-dashed border-ink/5" />
+          <WLogo class="animate-float relative h-44 w-48 text-silver drop-shadow-[0_20px_50px_var(--logo-glow)]" />
         </div>
       </div>
-    </AppSection>
 
-    <AppSection
-      :title="t('section.proyectos.titulo')"
-      :subtitle="t('section.proyectos.subtitulo')"
-    >
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <ProjectCard
-          v-for="project in portfolio.projects"
-          :key="project.id"
-          :project="project"
+      <TechMarquee class="mt-16" />
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="mx-auto max-w-7xl px-6 pt-20">
+      <RevealOnScroll>
+        <StatsBar />
+      </RevealOnScroll>
+    </section>
+
+    <!-- ============ SERVICIOS (adelanto) ============ -->
+    <section class="mx-auto max-w-7xl px-6 py-24 md:py-32">
+      <RevealOnScroll>
+        <SectionHeader
+          align="split"
+          :kicker="t('servicios.kicker')"
+          :title="t('servicios.titulo')"
+          :subtitle="t('servicios.subtitulo')"
         />
+      </RevealOnScroll>
+
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <RevealOnScroll v-for="(service, i) in featuredServices" :key="service.key" :delay="i * 90">
+          <ServiceCard :service="service" :index="i" />
+        </RevealOnScroll>
       </div>
-    </AppSection>
 
-    <AppSection
-      :title="t('section.filosofia.titulo')"
-      :subtitle="t('section.filosofia.subtitulo')"
-    >
-      <div class="grid gap-8 md:grid-cols-3">
-        <div class="text-center">
-          <div class="mx-auto mb-4 flex size-16 items-center justify-center rounded-2xl bg-sky-500/10 text-sky-400">
-            <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold text-white">{{ t('filosofia.rapido.titulo') }}</h3>
-          <p class="mt-2 text-sm text-slate-400">{{ t('filosofia.rapido.descripcion') }}</p>
+      <RevealOnScroll :delay="200">
+        <div class="mt-10 flex justify-center">
+          <CtaLink to="/servicios" variant="outline">{{ t('home.ver_servicios') }}</CtaLink>
         </div>
+      </RevealOnScroll>
+    </section>
 
-        <div class="text-center">
-          <div class="mx-auto mb-4 flex size-16 items-center justify-center rounded-2xl bg-sky-500/10 text-sky-400">
-            <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold text-white">{{ t('filosofia.seguro.titulo') }}</h3>
-          <p class="mt-2 text-sm text-slate-400">{{ t('filosofia.seguro.descripcion') }}</p>
-        </div>
-
-        <div class="text-center">
-          <div class="mx-auto mb-4 flex size-16 items-center justify-center rounded-2xl bg-sky-500/10 text-sky-400">
-            <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold text-white">{{ t('filosofia.colaborativo.titulo') }}</h3>
-          <p class="mt-2 text-sm text-slate-400">{{ t('filosofia.colaborativo.descripcion') }}</p>
-        </div>
-      </div>
-    </AppSection>
-  </div>
+    <!-- ============ AGENDA (banner) ============ -->
+    <section class="mx-auto max-w-7xl px-6 pb-24 md:pb-32">
+      <RevealOnScroll>
+        <CtaBanner />
+      </RevealOnScroll>
+    </section>
+  </main>
 </template>

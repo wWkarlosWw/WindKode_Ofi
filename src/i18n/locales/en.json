@@ -1,28 +1,62 @@
 {
   "nav": {
-    "inicio": "Home",
+    "servicios": "Services",
+    "nosotros": "About",
+    "equipo": "Team",
     "proyectos": "Projects",
     "contacto": "Contact",
+    "agenda": "Book a call",
     "menu": "Menu"
   },
   "hero": {
-    "badge": "Tailwind for your next project",
-    "titulo1": "Custom software",
-    "titulo2": "with the",
-    "titulo3": "agility of the wind",
-    "subtitulo": "At WindKode we build lightweight, fast and accessible applications that solve each user's specific needs.",
-    "cta_primary": "View projects",
-    "cta_secondary": "Get in touch"
+    "kicker": "Software that moves your business forward",
+    "titulo_l1": "Custom",
+    "titulo_l2": "software",
+    "subtitulo": "We build custom software and automate processes with the agility of the wind. Lightweight, fast and accessible applications, backed by solid code and exceptional teamwork.",
+    "cta_agenda": "Book a call",
+    "cta_proyectos": "View projects"
   },
-  "section": {
-    "proyectos": {
-      "titulo": "Featured projects",
-      "subtitulo": "Lightweight, fast and accessible applications that solve real needs."
-    },
-    "filosofia": {
-      "titulo": "Our philosophy",
-      "subtitulo": "Solid code, exceptional teamwork."
+  "home": {
+    "ver_servicios": "See all services"
+  },
+  "stats": {
+    "proyectos": "Projects delivered",
+    "clientes": "Happy clients",
+    "automatizacion": "Automation running",
+    "tecnologias": "Technologies mastered"
+  },
+  "servicios": {
+    "kicker": "Our services",
+    "titulo": "What we do",
+    "subtitulo": "Tailor-made tech solutions that move your business forward with the agility of the wind.",
+    "items": {
+      "web": {
+        "titulo": "Web & Mobile Development",
+        "descripcion": "We craft lightweight, fast and accessible apps and platforms. We bring your idea to any screen with intuitive design and impeccable code."
+      },
+      "ia": {
+        "titulo": "Automation & Artificial Intelligence",
+        "descripcion": "Your time is valuable. We remove manual work from your company by automating processes and integrating AI agents that work for you 24/7."
+      },
+      "apis": {
+        "titulo": "APIs & Integrations",
+        "descripcion": "We make your tools talk to each other. We connect your current systems so information flows without barriers or interruptions."
+      },
+      "cloud": {
+        "titulo": "Migrations & Modernization",
+        "descripcion": "Give your infrastructure a breather. We migrate legacy systems to modern technologies or the cloud to make them safer, more efficient and scalable."
+      },
+      "consultoria": {
+        "titulo": "Tech Consulting",
+        "descripcion": "We guide you every step of the way. We analyze your business and chart the fastest, most effective tech route for your digital transformation."
+      }
     }
+  },
+  "nosotros": {
+    "kicker": "About us",
+    "titulo": "Agility, solid code and an exceptional team",
+    "p1": "At WindKode we build custom software and automate processes with the agility of the wind. We deliver lightweight, fast and accessible applications that solve each user's specific needs.",
+    "p2": "Behind every project there is solid code, best practices from the very first commit, and exceptional teamwork — with you as part of the process."
   },
   "filosofia": {
     "rapido": {
@@ -38,19 +72,33 @@
       "descripcion": "Exceptional teamwork, with you as part of the process."
     }
   },
+  "equipo": {
+    "kicker": "Our team",
+    "titulo": "The people behind the wind",
+    "subtitulo": "A small, agile team obsessed with quality.",
+    "roles": {
+      "fundador": "Founder · Full-Stack Developer",
+      "frontend": "Frontend Development · UI/UX",
+      "backend": "Backend Development · Automation"
+    }
+  },
   "proyectos": {
+    "kicker": "Featured work",
     "titulo": "Projects",
     "subtitulo": "Every project is a story of code, design and collaboration.",
     "vacio": "We will share our projects here soon."
   },
   "proyecto": {
-    "ver": "View project →",
-    "repositorio": "Repository →"
+    "ver": "View project",
+    "repositorio": "Repository"
   },
-  "contacto": {
-    "titulo": "Contact",
-    "subtitulo": "Tell us your idea and we'll turn it into software.",
-    "email_texto": "Or write us directly at"
+  "agenda": {
+    "kicker": "Book a call",
+    "titulo_l1": "Let's create something",
+    "titulo_l2": "extraordinary",
+    "subtitulo": "Tell us your idea and we'll turn it into software. Book a no-strings call and let's chart your project's route together.",
+    "email_label": "Write to us",
+    "respuesta": "We reply within 24 hours."
   },
   "formulario": {
     "nombre": {
@@ -74,7 +122,8 @@
   "footer": {
     "copyright": "© {year} WindKode. All rights reserved.",
     "hecho": "Made with",
-    "hecho_sufijo": "and a fair wind."
+    "hecho_sufijo": "and a fair wind.",
+    "tagline": "Custom software with the agility of the wind."
   },
   "meta": {
     "descripcion": "WindKode — Custom software with the agility of the wind. Lightweight, fast and accessible applications.",
