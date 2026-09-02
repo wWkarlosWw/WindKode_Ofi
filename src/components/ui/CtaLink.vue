@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Component } from 'vue'
 import type { RouteLocationRaw } from 'vue-router'
 import { ArrowUpRight } from '@lucide/vue'
 
@@ -7,8 +8,9 @@ withDefaults(
     to: RouteLocationRaw
     variant?: 'solid' | 'outline'
     size?: 'md' | 'lg'
+    icon?: Component
   }>(),
-  { variant: 'solid', size: 'md' },
+  { variant: 'solid', size: 'md', icon: undefined },
 )
 </script>
 
@@ -26,8 +28,11 @@ withDefaults(
     ]"
   >
     <slot />
-    <ArrowUpRight
-      class="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+    <component
+      :is="icon ?? ArrowUpRight"
+      class="size-4 transition-transform duration-300"
+      :class="icon ? 'group-hover:scale-110' : 'group-hover:-translate-y-0.5 group-hover:translate-x-0.5'"
+      :stroke-width="2"
     />
   </RouterLink>
 </template>

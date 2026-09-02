@@ -10,9 +10,9 @@ const { t } = useI18n()
     <div
       v-for="stat in stats"
       :key="stat.labelKey"
-      class="flex flex-col items-center gap-2 bg-abyss px-6 py-10 text-center transition-colors hover:bg-carbon/60"
+      class="flex flex-col items-center gap-2 bg-abyss px-4 py-8 text-center transition-colors hover:bg-carbon/60 md:px-6 md:py-10"
     >
-      <span class="font-display text-metal text-5xl md:text-6xl">{{ stat.value }}</span>
+      <span class="font-display text-metal text-4xl sm:text-5xl md:text-6xl">{{ stat.value }}</span>
       <span class="text-xs uppercase tracking-[0.25em] text-silver/50">{{ t(stat.labelKey) }}</span>
     </div>
   </div>

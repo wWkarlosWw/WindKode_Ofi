@@ -8,7 +8,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <main class="min-h-screen bg-abyss pt-36 text-silver">
+  <main class="min-h-screen bg-abyss pt-28 md:pt-36 text-silver">
     <div class="mx-auto max-w-7xl px-6 pb-24 md:pb-32">
       <RevealOnScroll>
         <SectionHeader

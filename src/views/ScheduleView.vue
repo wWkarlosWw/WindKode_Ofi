@@ -8,7 +8,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <main class="relative min-h-screen overflow-hidden bg-abyss pt-36 text-silver">
+  <main class="relative min-h-screen overflow-hidden bg-abyss pt-28 md:pt-36 text-silver">
     <div class="pointer-events-none absolute inset-0">
       <div class="absolute left-1/2 top-0 h-72 w-[50rem] -translate-x-1/2 rounded-full bg-carbon/60 blur-[120px]" />
     </div>
@@ -48,7 +48,7 @@ const { t } = useI18n()
         </RevealOnScroll>
 
         <RevealOnScroll :delay="150">
-          <div class="rounded-3xl border border-ink/10 bg-ink/[0.03] p-8 backdrop-blur-sm md:p-10">
+          <div class="rounded-3xl border border-ink/10 bg-ink/[0.03] p-6 backdrop-blur-sm sm:p-8 md:p-10">
             <ContactForm />
           </div>
         </RevealOnScroll>

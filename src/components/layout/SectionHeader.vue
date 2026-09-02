@@ -22,7 +22,7 @@ withDefaults(
       <p v-if="kicker" class="mb-3 text-xs font-medium uppercase tracking-[0.35em] text-steel">
         {{ kicker }}
       </p>
-      <h2 class="font-display text-metal text-5xl uppercase leading-[0.95] md:text-7xl">
+      <h2 class="font-display text-metal text-4xl uppercase leading-[0.95] sm:text-5xl md:text-7xl">
         <slot name="title">{{ title }}</slot>
       </h2>
       <p v-if="subtitle && align !== 'split'" class="mt-4 text-sm text-silver/60">

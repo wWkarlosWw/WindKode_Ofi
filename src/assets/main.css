@@ -25,7 +25,10 @@
 
   --animate-fade-up: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-fade-in: fade-in 1.2s ease-out both;
-  --animate-float: float 7s ease-in-out infinite;
+  --animate-rise: rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-drift: drift 18s ease-in-out infinite alternate;
+  --animate-float-y: float-y 7s ease-in-out infinite;
+  --animate-float-x: float-x 11s ease-in-out infinite;
   --animate-spin-slow: spin 24s linear infinite;
   --animate-marquee: marquee 28s linear infinite;
   --animate-ping-slow: ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
@@ -34,10 +37,32 @@
     from {
       opacity: 0;
       transform: translateY(2rem);
+      filter: blur(6px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  /* Revelado del titular: la línea emerge desde detrás de una máscara */
+  @keyframes rise {
+    from {
+      transform: translateY(105%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* Deriva lenta de los brillos de fondo */
+  @keyframes drift {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+      transform: translate3d(-3rem, 2rem, 0) scale(1.15);
     }
   }
 
@@ -50,13 +75,27 @@
     }
   }
 
-  @keyframes float {
+  /*
+   * Flotación compuesta: eje Y (7s) y eje X + balanceo (11s) en elementos
+   * anidados con periodos distintos — el recorrido nunca se repite igual.
+   */
+  @keyframes float-y {
     0%,
     100% {
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-1.25rem);
+      transform: translateY(-1.4rem);
+    }
+  }
+
+  @keyframes float-x {
+    0%,
+    100% {
+      transform: translateX(-0.5rem) rotate(-1.2deg);
+    }
+    50% {
+      transform: translateX(0.6rem) rotate(1.2deg);
     }
   }
 
@@ -247,7 +286,10 @@ section[id] {
   }
   .animate-fade-up,
   .animate-fade-in,
-  .animate-float,
+  .animate-rise,
+  .animate-drift,
+  .animate-float-y,
+  .animate-float-x,
   .animate-marquee,
   .animate-spin-slow {
     animation: none;
