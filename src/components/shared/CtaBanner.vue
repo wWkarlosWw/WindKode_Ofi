@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { CalendarDays } from '@lucide/vue'
-import { CtaLink, WLogo } from '@/components/ui'
+import { CtaLink, WLogo, WhatsAppIcon } from '@/components/ui'
+import { useContact } from '@/composables/useContact'
 
 const { t } = useI18n()
+const { whatsappHref } = useContact()
 </script>
 
 <template>
@@ -17,8 +19,11 @@ const { t } = useI18n()
       <span class="text-metal block text-4xl uppercase sm:text-5xl md:text-7xl">{{ t('agenda.titulo_l2') }}</span>
     </h2>
     <p class="mx-auto mt-6 max-w-md leading-relaxed text-silver/70">{{ t('agenda.subtitulo') }}</p>
-    <div class="mt-10 flex justify-center">
-      <CtaLink to="/agenda" size="lg" :icon="CalendarDays">{{ t('nav.agenda') }}</CtaLink>
+    <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+      <CtaLink to="/agenda" size="lg" :icon="CalendarDays" class="justify-center">{{ t('nav.agenda') }}</CtaLink>
+      <CtaLink :href="whatsappHref" variant="outline" size="lg" :icon="WhatsAppIcon" class="justify-center">
+        {{ t('contacto.whatsapp') }}
+      </CtaLink>
     </div>
   </div>
 </template>

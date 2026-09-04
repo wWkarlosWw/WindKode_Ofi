@@ -2,9 +2,12 @@
 import { useI18n } from 'vue-i18n'
 import { Mail, Clock } from '@lucide/vue'
 import { SectionHeader } from '@/components/layout'
-import { ContactForm, RevealOnScroll } from '@/components/shared'
+import { ContactForm, RevealOnScroll, SocialLinks } from '@/components/shared'
+import { WhatsAppIcon } from '@/components/ui'
+import { useContact } from '@/composables/useContact'
 
 const { t } = useI18n()
+const { email, mailtoHref, whatsappHref, whatsappDisplay } = useContact()
 </script>
 
 <template>
@@ -27,7 +30,23 @@ const { t } = useI18n()
 
             <div class="mt-10 flex flex-col gap-3 text-sm text-silver/70">
               <a
-                href="mailto:hola@windkode.dev"
+                :href="whatsappHref"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group inline-flex items-center gap-3 transition-colors hover:text-ink"
+              >
+                <span
+                  class="flex size-10 items-center justify-center rounded-full border border-ink/10 transition-colors group-hover:border-silver/40"
+                >
+                  <WhatsAppIcon class="size-4" />
+                </span>
+                <span class="flex flex-col">
+                  <span class="text-ink">{{ t('contacto.whatsapp') }}</span>
+                  <span class="text-xs text-silver/50">{{ whatsappDisplay }}</span>
+                </span>
+              </a>
+              <a
+                :href="mailtoHref"
                 class="group inline-flex items-center gap-3 transition-colors hover:text-ink"
               >
                 <span
@@ -35,7 +54,10 @@ const { t } = useI18n()
                 >
                   <Mail class="size-4" :stroke-width="1.5" />
                 </span>
-                hola@windkode.dev
+                <span class="flex flex-col">
+                  <span class="text-ink">{{ t('agenda.email_label') }}</span>
+                  <span class="text-xs text-silver/50">{{ email }}</span>
+                </span>
               </a>
               <p class="inline-flex items-center gap-3">
                 <span class="flex size-10 items-center justify-center rounded-full border border-ink/10">
@@ -44,11 +66,13 @@ const { t } = useI18n()
                 {{ t('agenda.respuesta') }}
               </p>
             </div>
+
+            <SocialLinks label class="mt-10" />
           </div>
         </RevealOnScroll>
 
         <RevealOnScroll :delay="150">
-          <div class="rounded-3xl border border-ink/10 bg-ink/[0.03] p-6 backdrop-blur-sm sm:p-8 md:p-10">
+          <div class="relative rounded-3xl border border-ink/10 bg-ink/[0.03] p-6 backdrop-blur-sm sm:p-8 md:p-10">
             <ContactForm />
           </div>
         </RevealOnScroll>

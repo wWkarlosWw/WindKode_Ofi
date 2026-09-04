@@ -1,2 +1,2 @@
 export { getProjects, getProjectById } from './projects.service'
-export { sendContactForm } from './contact.service'
+export { buildContactMailto } from './contact.service'

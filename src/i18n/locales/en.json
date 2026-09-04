@@ -115,9 +115,18 @@
     },
     "enviar": "Send message",
     "exito": {
-      "titulo": "Message sent",
-      "mensaje": "Thank you for contacting us. We'll get back to you soon."
-    }
+      "titulo": "Your email is ready",
+      "mensaje": "Your mail app opened with the message drafted. Just hit send and we'll get back to you soon."
+    },
+    "alternativa": "Prefer another channel?",
+    "nuevo": "Write another message"
+  },
+  "contacto": {
+    "whatsapp": "Message us on WhatsApp",
+    "email": "Send an email",
+    "whatsapp_mensaje": "Hi WindKode 👋 I'd like to ask about a software project.",
+    "email_asunto": "Project request — WindKode",
+    "redes": "Follow us"
   },
   "footer": {
     "copyright": "© {year} WindKode. All rights reserved.",

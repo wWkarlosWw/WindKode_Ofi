@@ -3,7 +3,7 @@ import { useI18n } from 'vue-i18n'
 import { CalendarDays } from '@lucide/vue'
 import { WLogo, CtaLink } from '@/components/ui'
 import { SectionHeader } from '@/components/layout'
-import { RevealOnScroll, ServiceCard, StatsBar, TechMarquee, CtaBanner } from '@/components/shared'
+import { RevealOnScroll, ServiceCard, StatsBar, TechMarquee, CtaBanner, SocialLinks } from '@/components/shared'
 import { services } from '@/data'
 
 const { t } = useI18n()
@@ -63,17 +63,20 @@ const featuredServices = services.slice(0, 3)
           </p>
         </div>
 
-        <!-- Botones (en móvil van después del logo) -->
-        <div
-          class="animate-fade-up order-3 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center lg:col-start-1 lg:row-start-2 lg:mt-10 lg:justify-start lg:self-start"
-          style="animation-delay: 650ms"
-        >
-          <CtaLink to="/agenda" size="lg" :icon="CalendarDays" class="justify-center">
-            {{ t('hero.cta_agenda') }}
-          </CtaLink>
-          <CtaLink to="/proyectos" variant="outline" size="lg" class="justify-center">
-            {{ t('hero.cta_proyectos') }}
-          </CtaLink>
+        <!-- Botones y redes (en móvil van después del logo) -->
+        <div class="order-3 flex flex-col gap-8 lg:col-start-1 lg:row-start-2 lg:mt-10 lg:self-start">
+          <div
+            class="animate-fade-up flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center lg:justify-start"
+            style="animation-delay: 650ms"
+          >
+            <CtaLink to="/agenda" size="lg" :icon="CalendarDays" class="justify-center">
+              {{ t('hero.cta_agenda') }}
+            </CtaLink>
+            <CtaLink to="/proyectos" variant="outline" size="lg" class="justify-center">
+              {{ t('hero.cta_proyectos') }}
+            </CtaLink>
+          </div>
+          <SocialLinks label class="animate-fade-up justify-center lg:justify-start" style="animation-delay: 800ms" />
         </div>
 
         <!-- Logo protagonista con órbita (en móvil entre texto y botones) -->

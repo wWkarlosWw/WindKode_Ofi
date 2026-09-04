@@ -8,20 +8,33 @@ WindKode — landing/portfolio site for a software development startup. Mission:
 
 ## Commands
 
-Uses pnpm (pnpm-lock.yaml is the current lockfile).
+Uses pnpm (`pnpm-lock.yaml` is the canonical lockfile; a stale `package-lock.json` also exists — don't use npm). Node `^22.18.0 || >=24.12.0` (see `engines`).
 
 ```sh
 pnpm dev          # Vite dev server with HMR
-pnpm build        # type-check + production build (runs both in parallel)
-pnpm type-check   # vue-tsc only
+pnpm build        # type-check + production build (runs both in parallel via npm-run-all2)
+pnpm build-only   # vite build without type-check
+pnpm type-check   # vue-tsc --build only
 pnpm preview      # serve the production build
 ```
 
-There is no linter or test runner configured.
+There is no linter or test runner configured. Type-checking is the only gate: `pnpm build` fails on type errors. `tsconfig.app.json` enables `noUncheckedIndexedAccess`, so array/object index reads are `T | undefined` and must be narrowed. `pnpm install` runs `husky` via the `prepare` script, which installs the `commit-msg` hook.
 
 ## Commit convention
 
-Enforced by husky + commitlint (`@commitlint/config-conventional`). Format: `<tipo>: <descripción breve>` with types `feat|fix|docs|style|refactor|perf|test|chore`. Descriptions are written in Spanish (see `commit.md` for examples).
+Enforced by husky + commitlint (`@commitlint/config-conventional`) on `commit-msg`. Format: `<tipo>: <descripción breve>` with types `feat|fix|docs|style|refactor|perf|test|chore`. Descriptions are written in Spanish (see `commit.md` for examples).
+
+## Deploy
+
+Vercel, configured in `vercel.json` (framework `vite`, `pnpm build`, output `dist`). No rewrites are declared there. There is no `api/` directory and no server-side code.
+
+## Contact channels
+
+All contact data lives in `src/config/contact.ts` (email `windkode@gmail.com`, WhatsApp `5917590262` in E.164 without `+`), overridable via `VITE_CONTACT_EMAIL` / `VITE_WHATSAPP_NUMBER`, plus `SOCIAL_LINKS` (Instagram, Facebook, LinkedIn; keep URLs free of tracking params). Consume it only through `useContact()` (`src/composables/useContact.ts`), which builds the localized `wa.me` link (default message = `contacto.whatsapp_mensaje`), the `mailto:` link, and drives the form status (`idle | sent`).
+
+There is **no backend**: submitting the form calls `buildContactMailto` (`contact.service.ts`) and sets `window.location.href` to a `mailto:` URL with subject and body prefilled, so the visitor's own mail client sends the message. Spaces are encoded as `%20` (not `+`) because mail clients don't decode `+` in `mailto:`.
+
+`CtaLink` accepts either `to` (RouterLink) or `href` (external `<a>` with `target=_blank`). Brand glyphs are hand-drawn ui components since lucide ships no brand icons: `WhatsAppIcon` and `SocialIcon` (`name` = `instagram | facebook | linkedin`). The social icon row is the shared `SocialLinks` component (props `size`, `label`), rendered in the hero under the CTAs, the footer bottom bar, and `/agenda` — add networks in `SOCIAL_LINKS` only.
 
 ## Stack
 
@@ -29,15 +42,15 @@ Vue 3 (Composition API, `<script setup lang="ts">`), TypeScript, Vite 8, Tailwin
 
 ## Architecture
 
-Data flow: **View → Composable → Service → Store**. Components receive props and emit events only — no business logic in components.
+Intended data flow: **View → Composable → Service → Store**. Components receive props and emit events only — no business logic in components. `ContactForm` goes through `useContact()`; `ScheduleView`, `AppFooter` and `CtaBanner` read the contact links from the same composable.
 
 - `src/components/ui/` — atomic base components (AppButton, AppCard, AppBadge, WLogo, CtaLink), styled with Tailwind, variant props
-- `src/components/layout/` — AppNavbar, AppFooter, AppSection (page chrome, mounted once in App.vue)
-- `src/components/shared/` — business components (ProjectCard, ContactForm)
-- `src/composables/` — thin reactive wrappers (useLocale wraps locale.store, useScrollTo, useIntersectionObserver)
-- `src/services/` — data layer returning Promises (currently mock data; project mock text is resolved through i18n so it localizes)
+- `src/components/layout/` — AppNavbar, AppFooter, AppSection, SectionHeader (page chrome; navbar/footer mounted once in App.vue)
+- `src/components/shared/` — business components (ProjectCard, ContactForm, ServiceCard, TeamCard, StatsBar, TechMarquee, CtaBanner, RevealOnScroll, …)
+- `src/composables/` — thin reactive wrappers (useLocale / useTheme wrap their stores, useScrollTo, useIntersectionObserver)
+- `src/services/` — data layer returning Promises. `projects.service` is mock data resolved through i18n so it localizes; `contact.service` only builds the `mailto:` URL (see Contact channels).
 - `src/data/` — static UI content (services, stats, team, pillars, marquee items) with lucide icon components; user-facing text stays in i18n, these arrays hold only keys + icons
-- `src/stores/` — Pinia setup stores; `locale.store` is the single writer for locale (syncs vue-i18n, `<html lang>`, and localStorage)
+- `src/stores/` — Pinia setup stores: `locale.store` (single writer for locale: syncs vue-i18n, `<html lang>`, localStorage), `theme.store`, `portfolio.store` (projects via service)
 - `src/types/` — shared interfaces (Project, Skill, ContactForm)
 
 Each component folder has an `index.ts` barrel — import via `import { AppButton } from '@/components/ui'`. Path alias `@` → `src/`.
@@ -46,16 +59,20 @@ Each component folder has an `index.ts` barrel — import via `import { AppButto
 
 - Translation files: `src/i18n/locales/es.json` and `en.json`. Both files must always have identical key structure; `es` is the fallback locale.
 - Keys are grouped by scope (`nav`, `hero`, `servicios`, `footer`, …) and named in Spanish.
-- In components use `const { t } = useI18n()` — never hardcode user-facing strings.
+- In components use `const { t } = useI18n()` — never hardcode user-facing strings. Outside components (services) use `i18n.global.t`.
+- vue-i18n treats `@` and `{`/`}` as message syntax; a literal `@` in a translation must be written as `{'@'}`.
 - Mock/data text (e.g. projects) also goes through i18n (`projects_data.*`).
-- Locale persists in localStorage; change it only through the locale store / useLocale.
+- Locale persists in localStorage; change it only through the locale store / useLocale. Initial locale is read from localStorage in `src/i18n/index.ts` before the app mounts.
+- The page `<title>` and meta description in `index.html` are static Spanish — they are not localized (the `meta` i18n keys exist but nothing reads them yet).
 
 ## Design system
 
-The palette is **semantic and theme-aware**, defined once in the `@theme` block of `src/assets/main.css`: abyss (page background), graphite (surfaces), carbon (elevated surfaces), steel (muted accent), silver (body text), platinum (CTA background), ink (max-contrast foreground — use it instead of `white`/`black` utilities), halo (CTA hover), veil (shadow color). Light values live on `:root`; dark values are redefined under `:root.dark` and duplicated inside a `prefers-color-scheme: dark` media block for the system default — **keep those two dark blocks in sync**. Theme selection: default follows the OS; `theme.store.ts` persists a manual `light`/`dark` override in localStorage by toggling a `.light`/`.dark` class on `<html>` (no class = system). No `dark:` variants are needed — colors flip via the tokens, so never hardcode `text-white`, `bg-black`, raw hex, or rgba in components (use `text-ink`, `border-ink/10`, the `--metal-*`/`--logo-glow` vars, etc.). Font tokens: Bebas Neue = display for giant uppercase headings, Fraunces = headline, Inter = body.
+The palette is **semantic and theme-aware**, defined once in the `@theme` block of `src/assets/main.css`: abyss (page background), graphite (surfaces), carbon (elevated surfaces), steel (muted accent), silver (body text), platinum (CTA background), ink (max-contrast foreground — use it instead of `white`/`black` utilities), halo (CTA hover), veil (shadow color). Light values live on `:root`; dark values are redefined under `:root.dark` and duplicated inside a `prefers-color-scheme: dark` media block for the system default — **keep those two dark blocks in sync**. Theme selection: default follows the OS; `theme.store.ts` persists a manual `light`/`dark` override in localStorage by toggling a `.light`/`.dark` class on `<html>` (no class = system). No `dark:` variants are needed — colors flip via the tokens, so never hardcode `text-white`, `bg-black`, raw hex, or rgba in components (use `text-ink`, `border-ink/10`, the `--metal-*`/`--logo-glow` vars, etc.). Font tokens: Bebas Neue = display for giant uppercase headings, Fraunces = headline, Inter = body (Roboto is also loaded as `--font-roboto`).
 
-When consuming Pinia stores outside components, and in composables, use `storeToRefs` to keep reactivity (see `useLocale`/`useTheme`). Dark, minimalist aesthetic; big display titles use the `.text-metal` gradient class, primary CTAs use `CtaLink` (which carries the `.btn-shine` periodic shimmer). Icons come from `@lucide/vue`. Scroll-reveal animations use the `RevealOnScroll` shared component. Brand logo: `src/assets/svg/W-logo.svg` (inlined as the `WLogo` ui component so it inherits `currentColor`).
+Animations are also tokens in `@theme` (`animate-fade-up`, `animate-rise`, `animate-drift`, `animate-float-*`, `animate-marquee`, …) with a `prefers-reduced-motion` block at the bottom of `main.css`. Route transitions use the `.page-*` classes there via `<Transition name="page">` in App.vue.
+
+When consuming Pinia stores outside components, and in composables, use `storeToRefs` to keep reactivity (see `useLocale`/`useTheme`). Dark, minimalist aesthetic; big display titles use the `.text-metal` gradient class, primary CTAs use `CtaLink` (which carries the `.btn-shine` periodic shimmer). Icons come from `@lucide/vue`. Scroll-reveal animations use the `RevealOnScroll` shared component (`.reveal` / `.is-visible` classes). Brand logo: `src/assets/svg/W-logo.svg` (inlined as the `WLogo` ui component so it inherits `currentColor`).
 
 ## Routes
 
-Each nav section is its own page: `/` (hero + teasers), `/servicios`, `/nosotros`, `/equipo`, `/proyectos`, `/agenda` (contact form). The navbar logo links home ("Inicio" is the logo, not a nav item); the navbar morphs into a floating island pill on scroll.
+Each nav section is its own lazy-loaded page: `/` (hero + teasers), `/servicios`, `/nosotros`, `/equipo`, `/proyectos`, `/agenda` (contact form). Legacy `/projects` and `/contact` redirect to `/proyectos` and `/agenda`. `scrollBehavior` scrolls smoothly to a hash if present, otherwise to top. The navbar logo links home ("Inicio" is the logo, not a nav item); the navbar morphs into a floating island pill on scroll.

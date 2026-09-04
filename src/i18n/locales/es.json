@@ -115,9 +115,18 @@
     },
     "enviar": "Enviar mensaje",
     "exito": {
-      "titulo": "Mensaje enviado",
-      "mensaje": "Gracias por contactarnos. Te responderemos pronto."
-    }
+      "titulo": "Tu correo está listo",
+      "mensaje": "Se abrió tu aplicación de correo con el mensaje redactado. Solo pulsa enviar y te respondemos pronto."
+    },
+    "alternativa": "¿Prefieres otro canal?",
+    "nuevo": "Escribir otro mensaje"
+  },
+  "contacto": {
+    "whatsapp": "Escríbenos por WhatsApp",
+    "email": "Enviar un correo",
+    "whatsapp_mensaje": "Hola WindKode 👋 Me gustaría hacer una consulta sobre un proyecto de software.",
+    "email_asunto": "Solicitud de proyecto — WindKode",
+    "redes": "Síguenos"
   },
   "footer": {
     "copyright": "© {year} WindKode. Todos los derechos reservados.",

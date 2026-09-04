@@ -5,15 +5,15 @@
 
 ## Stack
 
-| Tecnología | Uso |
-|---|---|
-| **Vue 3** (Composition API + `<script setup>`) | Framework UI |
-| **TypeScript** | Tipado estático |
-| **Vite 8** | Bundler y dev server |
-| **TailwindCSS v4** | Estilos utilitarios |
-| **Vue Router 4** | Enrutamiento SPA |
-| **Pinia** | Estado global |
-| **vue-i18n v11** | Internacionalización (ES/EN) |
+| Tecnología                                     | Uso                          |
+| ---------------------------------------------- | ---------------------------- |
+| **Vue 3** (Composition API + `<script setup>`) | Framework UI                 |
+| **TypeScript**                                 | Tipado estático              |
+| **Vite 8**                                     | Bundler y dev server         |
+| **TailwindCSS v4**                             | Estilos utilitarios          |
+| **Vue Router 4**                               | Enrutamiento SPA             |
+| **Pinia**                                      | Estado global                |
+| **vue-i18n v11**                               | Internacionalización (ES/EN) |
 
 ## Arquitectura
 
@@ -83,6 +83,7 @@ const { t } = useI18n()
 Agrupadas por ámbito: `nav`, `hero`, `section`, `filosofia`, `proyectos`, `proyecto`, `contacto`, `formulario`, `footer`, `meta`, `projects_data`.
 
 Ejemplo:
+
 ```json
 {
   "nav": {
@@ -107,3 +108,9 @@ npm run type-check # Solo type-check
 ## Misión
 
 > Desarrollar software a medida y automatizar procesos con la agilidad del viento. En WindKode, entregamos aplicaciones ligeras, veloces y accesibles que resuelven las necesidades específicas de cada usuario, respaldadas por un código sólido y un trabajo en equipo excepcional.
+
+## Contacto (WhatsApp + formulario por correo)
+
+- **Datos**: `src/config/contact.ts` (correo `windkode@gmail.com`, WhatsApp `+591 7590262`). Se pueden sobreescribir con `VITE_CONTACT_EMAIL` y `VITE_WHATSAPP_NUMBER` (ver `.env.example`).
+- **WhatsApp**: enlace `wa.me` con mensaje predeterminado (clave i18n `contacto.whatsapp_mensaje`), visible en `/agenda`, el footer y el banner de CTA.
+- **Formulario**: al pulsar "Enviar" se abre el cliente de correo del visitante con un `mailto:` a `windkode@gmail.com`, asunto y cuerpo ya redactados. No hay backend ni credenciales que configurar.

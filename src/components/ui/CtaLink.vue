@@ -1,22 +1,34 @@
 <script setup lang="ts">
-import type { Component } from 'vue'
-import type { RouteLocationRaw } from 'vue-router'
+import { computed, type Component } from 'vue'
+import { RouterLink, type RouteLocationRaw } from 'vue-router'
 import { ArrowUpRight } from '@lucide/vue'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
-    to: RouteLocationRaw
+    /** Ruta interna (RouterLink). */
+    to?: RouteLocationRaw
+    /** Enlace externo (wa.me, mailto:, …); si se indica, renderiza un <a> y abre en pestaña nueva. */
+    href?: string
     variant?: 'solid' | 'outline'
     size?: 'md' | 'lg'
     icon?: Component
   }>(),
-  { variant: 'solid', size: 'md', icon: undefined },
+  { to: undefined, href: undefined, variant: 'solid', size: 'md', icon: undefined },
+)
+
+const isExternal = computed(() => Boolean(props.href))
+const tag = computed(() => (isExternal.value ? 'a' : RouterLink))
+const attrs = computed(() =>
+  isExternal.value
+    ? { href: props.href, target: '_blank', rel: 'noopener noreferrer' }
+    : { to: props.to ?? '/' },
 )
 </script>
 
 <template>
-  <RouterLink
-    :to="to"
+  <component
+    :is="tag"
+    v-bind="attrs"
     class="group inline-flex items-center gap-2 rounded-full font-semibold uppercase tracking-[0.15em] transition-all duration-300 hover:-translate-y-0.5"
     :class="[
       variant === 'solid' &&
@@ -34,5 +46,5 @@ withDefaults(
       :class="icon ? 'group-hover:scale-110' : 'group-hover:-translate-y-0.5 group-hover:translate-x-0.5'"
       :stroke-width="2"
     />
-  </RouterLink>
+  </component>
 </template>

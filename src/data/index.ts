@@ -49,4 +49,31 @@ export const pillars: PillarItem[] = [
   { key: 'colaborativo', icon: HeartHandshake },
 ]
 
-export const marqueeItems = ['Web', 'Mobile', 'IA / AI', 'Cloud', 'APIs', 'Vue', 'TypeScript', 'Node.js', 'Python', 'DevOps']
+/** Tecnologías y áreas que aparecen en la marquesina de la home (TechMarquee). */
+export const marqueeItems = [
+  // Áreas
+  'Web',
+  'Mobile',
+  'IA / AI',
+  'Cloud',
+  'APIs',
+  'Automatización',
+  // Lenguajes y frameworks
+  'TypeScript',
+  'JavaScript',
+  'Python',
+  'Vue',
+  'Node.js',
+  'Tailwind CSS',
+  // Bases de datos
+  'PostgreSQL',
+  'MySQL',
+  'SQL',
+  'MongoDB',
+  'Redis',
+  // Infraestructura
+  'Docker',
+  'DevOps',
+  'CI / CD',
+  'Git',
+]
