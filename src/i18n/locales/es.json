@@ -14,6 +14,7 @@
     "titulo_l2": "a medida",
     "subtitulo": "Desarrollamos software a medida y automatizamos procesos con la agilidad del viento. Aplicaciones ligeras, veloces y accesibles, respaldadas por un código sólido y un trabajo en equipo excepcional.",
     "cta_agenda": "Agenda ya",
+    "cta_servicios": "Ver servicios",
     "cta_proyectos": "Ver proyectos"
   },
   "home": {
@@ -52,6 +53,60 @@
       }
     }
   },
+  "proceso": {
+    "kicker": "Nuestro proceso",
+    "titulo": "Así trabajamos",
+    "subtitulo": "Un ciclo iterativo y transparente: sabes en qué fase está tu proyecto en todo momento y ves avances reales cada semana.",
+    "hint": "Toca una fase para ver el detalle",
+    "fase": "Fase",
+    "duracion": "Duración",
+    "entregable": "Entregable",
+    "relacionados": "Fases conectadas",
+    "cerrar": "Cerrar",
+    "ciclo": {
+      "kicker": "Ciclo de desarrollo",
+      "titulo": "Paso a paso",
+      "subtitulo": "Cada fase tiene un objetivo claro, una duración estimada y un entregable concreto que revisamos contigo."
+    },
+    "pasos": {
+      "descubrimiento": {
+        "titulo": "Descubrimiento",
+        "descripcion": "Entendemos tu negocio, tus usuarios y el problema real. Definimos alcance, prioridades y cómo mediremos el éxito.",
+        "duracion": "1–2 semanas",
+        "entregable": "Documento de alcance y propuesta"
+      },
+      "diseno": {
+        "titulo": "Diseño",
+        "descripcion": "Prototipamos flujos e interfaces antes de escribir código, para validar contigo la experiencia desde el inicio.",
+        "duracion": "1–2 semanas",
+        "entregable": "Prototipo navegable"
+      },
+      "desarrollo": {
+        "titulo": "Desarrollo",
+        "descripcion": "Construimos en ciclos cortos con entregas frecuentes. Ves avances funcionando cada semana, no al final.",
+        "duracion": "3–8 semanas",
+        "entregable": "Versión funcional en cada sprint"
+      },
+      "pruebas": {
+        "titulo": "Pruebas (QA)",
+        "descripcion": "Pruebas automáticas y manuales en cada entrega: rendimiento, seguridad y accesibilidad antes de salir a producción.",
+        "duracion": "Continuo",
+        "entregable": "Reporte de calidad"
+      },
+      "despliegue": {
+        "titulo": "Despliegue",
+        "descripcion": "Publicamos en la nube con integración continua, monitoreo y respaldos. Un lanzamiento sin sorpresas.",
+        "duracion": "1 semana",
+        "entregable": "Producto en producción"
+      },
+      "evolucion": {
+        "titulo": "Evolución",
+        "descripcion": "Medimos, escuchamos y mejoramos. Soporte, mantenimiento y nuevas funcionalidades cuando tu negocio las necesita.",
+        "duracion": "Continuo",
+        "entregable": "Mejora continua y soporte"
+      }
+    }
+  },
   "nosotros": {
     "kicker": "Sobre nosotros",
     "titulo": "Agilidad, código sólido y equipo excepcional",
@@ -75,11 +130,39 @@
   "equipo": {
     "kicker": "Nuestro equipo",
     "titulo": "Las personas detrás del viento",
-    "subtitulo": "Un equipo pequeño, ágil y obsesionado con la calidad.",
+    "subtitulo": "Liderazgo cercano y un equipo ágil detrás, obsesionado con la calidad.",
     "roles": {
       "fundador": "Fundador · Desarrollador Full-Stack",
-      "frontend": "Desarrollo Frontend · UI/UX",
-      "backend": "Desarrollo Backend · Automatización"
+      "segundo": "Cofundador · Desarrollador Full-Stack"
+    },
+    "areas": {
+      "kicker": "Detrás de escena",
+      "titulo": "Un equipo por cada frente",
+      "subtitulo": "Más que dos nombres: áreas especializadas que trabajan juntas para que cada entrega llegue rápida, sólida y bien probada.",
+      "desarrollo": {
+        "titulo": "Desarrollo",
+        "descripcion": "Frontend, backend y móvil. Convierten ideas en aplicaciones ligeras y veloces con código limpio."
+      },
+      "qa": {
+        "titulo": "Calidad (QA)",
+        "descripcion": "Prueban cada funcionalidad antes de que llegue a tus manos. Nada sale sin pasar por aquí."
+      },
+      "diseno": {
+        "titulo": "Diseño UI/UX",
+        "descripcion": "Interfaces claras y accesibles, pensadas para que cualquier usuario las entienda al primer vistazo."
+      },
+      "ventas": {
+        "titulo": "Ventas",
+        "descripcion": "Escuchan tu necesidad y la traducen en una propuesta concreta, sin rodeos ni letra pequeña."
+      },
+      "soporte": {
+        "titulo": "Soporte",
+        "descripcion": "Te acompañan después del lanzamiento: mantenimiento, mejoras y respuesta rápida."
+      },
+      "infraestructura": {
+        "titulo": "Infraestructura y DevOps",
+        "descripcion": "Nube, despliegues y automatización para que todo funcione seguro y sin interrupciones."
+      }
     }
   },
   "proyectos": {

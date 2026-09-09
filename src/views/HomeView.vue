@@ -72,8 +72,8 @@ const featuredServices = services.slice(0, 3)
             <CtaLink to="/agenda" size="lg" :icon="CalendarDays" class="justify-center">
               {{ t('hero.cta_agenda') }}
             </CtaLink>
-            <CtaLink to="/proyectos" variant="outline" size="lg" class="justify-center">
-              {{ t('hero.cta_proyectos') }}
+            <CtaLink to="/servicios" variant="outline" size="lg" class="justify-center">
+              {{ t('hero.cta_servicios') }}
             </CtaLink>
           </div>
           <SocialLinks label class="animate-fade-up justify-center lg:justify-start" style="animation-delay: 800ms" />

@@ -14,7 +14,6 @@ const links = [
   { to: "/servicios", label: "nav.servicios" },
   { to: "/nosotros", label: "nav.nosotros" },
   { to: "/equipo", label: "nav.equipo" },
-  { to: "/proyectos", label: "nav.proyectos" },
   { to: "/agenda", label: "nav.agenda" },
 ];
 </script>

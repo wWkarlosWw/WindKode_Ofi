@@ -14,6 +14,7 @@
     "titulo_l2": "software",
     "subtitulo": "We build custom software and automate processes with the agility of the wind. Lightweight, fast and accessible applications, backed by solid code and exceptional teamwork.",
     "cta_agenda": "Book now",
+    "cta_servicios": "See services",
     "cta_proyectos": "View projects"
   },
   "home": {
@@ -52,6 +53,60 @@
       }
     }
   },
+  "proceso": {
+    "kicker": "Our process",
+    "titulo": "How we work",
+    "subtitulo": "An iterative, transparent cycle: you always know which phase your project is in and you see real progress every week.",
+    "hint": "Tap a phase to see the details",
+    "fase": "Phase",
+    "duracion": "Duration",
+    "entregable": "Deliverable",
+    "relacionados": "Connected phases",
+    "cerrar": "Close",
+    "ciclo": {
+      "kicker": "Development cycle",
+      "titulo": "Step by step",
+      "subtitulo": "Every phase has a clear goal, an estimated duration and a concrete deliverable we review with you."
+    },
+    "pasos": {
+      "descubrimiento": {
+        "titulo": "Discovery",
+        "descripcion": "We understand your business, your users and the real problem. We define scope, priorities and how success will be measured.",
+        "duracion": "1–2 weeks",
+        "entregable": "Scope document and proposal"
+      },
+      "diseno": {
+        "titulo": "Design",
+        "descripcion": "We prototype flows and interfaces before writing code, so you validate the experience from day one.",
+        "duracion": "1–2 weeks",
+        "entregable": "Clickable prototype"
+      },
+      "desarrollo": {
+        "titulo": "Development",
+        "descripcion": "We build in short cycles with frequent deliveries. You see working progress every week, not at the end.",
+        "duracion": "3–8 weeks",
+        "entregable": "Working version every sprint"
+      },
+      "pruebas": {
+        "titulo": "Testing (QA)",
+        "descripcion": "Automated and manual testing on every delivery: performance, security and accessibility before going live.",
+        "duracion": "Ongoing",
+        "entregable": "Quality report"
+      },
+      "despliegue": {
+        "titulo": "Launch",
+        "descripcion": "We publish to the cloud with continuous integration, monitoring and backups. A launch with no surprises.",
+        "duracion": "1 week",
+        "entregable": "Product in production"
+      },
+      "evolucion": {
+        "titulo": "Evolution",
+        "descripcion": "We measure, listen and improve. Support, maintenance and new features whenever your business needs them.",
+        "duracion": "Ongoing",
+        "entregable": "Continuous improvement and support"
+      }
+    }
+  },
   "nosotros": {
     "kicker": "About us",
     "titulo": "Agility, solid code and an exceptional team",
@@ -75,11 +130,39 @@
   "equipo": {
     "kicker": "Our team",
     "titulo": "The people behind the wind",
-    "subtitulo": "A small, agile team obsessed with quality.",
+    "subtitulo": "Hands-on leadership and an agile team behind it, obsessed with quality.",
     "roles": {
       "fundador": "Founder · Full-Stack Developer",
-      "frontend": "Frontend Development · UI/UX",
-      "backend": "Backend Development · Automation"
+      "segundo": "Co-founder · Full-Stack Developer"
+    },
+    "areas": {
+      "kicker": "Behind the scenes",
+      "titulo": "A team on every front",
+      "subtitulo": "More than two names: specialized areas working together so every delivery ships fast, solid and well tested.",
+      "desarrollo": {
+        "titulo": "Development",
+        "descripcion": "Frontend, backend and mobile. They turn ideas into lightweight, fast applications with clean code."
+      },
+      "qa": {
+        "titulo": "Quality (QA)",
+        "descripcion": "They test every feature before it reaches your hands. Nothing ships without passing through here."
+      },
+      "diseno": {
+        "titulo": "UI/UX Design",
+        "descripcion": "Clear, accessible interfaces designed so any user understands them at first glance."
+      },
+      "ventas": {
+        "titulo": "Sales",
+        "descripcion": "They listen to your needs and turn them into a concrete proposal, no detours and no fine print."
+      },
+      "soporte": {
+        "titulo": "Support",
+        "descripcion": "They stay with you after launch: maintenance, improvements and fast response."
+      },
+      "infraestructura": {
+        "titulo": "Infrastructure & DevOps",
+        "descripcion": "Cloud, deployments and automation so everything runs safely and without interruptions."
+      }
     }
   },
   "proyectos": {

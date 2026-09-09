@@ -23,17 +23,20 @@ const router = createRouter({
       name: 'team',
       component: () => import('@/views/TeamView.vue'),
     },
-    {
-      path: '/proyectos',
-      name: 'projects',
-      component: () => import('@/views/ProjectsView.vue'),
-    },
+    // Módulo de proyectos deshabilitado de momento. Para reactivarlo: restaurar esta
+    // ruta, el redirect de `/projects`, el enlace en AppNavbar/AppFooter y el CTA del hero.
+    // {
+    //   path: '/proyectos',
+    //   name: 'projects',
+    //   component: () => import('@/views/ProjectsView.vue'),
+    // },
+    { path: '/proyectos', redirect: '/' },
     {
       path: '/agenda',
       name: 'schedule',
       component: () => import('@/views/ScheduleView.vue'),
     },
-    { path: '/projects', redirect: '/proyectos' },
+    { path: '/projects', redirect: '/' },
     { path: '/contact', redirect: '/agenda' },
   ],
   scrollBehavior(to) {
