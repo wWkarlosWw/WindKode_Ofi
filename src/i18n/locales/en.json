@@ -18,7 +18,44 @@
     "cta_proyectos": "View projects"
   },
   "home": {
-    "ver_servicios": "See all services"
+    "ver_servicios": "See all services",
+    "manifiesto": {
+      "kicker": "Why WindKode",
+      "titulo_l1": "Lightweight.",
+      "titulo_l2": "Fast.",
+      "titulo_l3": "Accessible.",
+      "texto": "We don't build heavy software nobody wants to use. We build tools that load instantly, that anyone understands and that grow with you. That is the agility of the wind: less friction, more results.",
+      "cta": "Read our story"
+    },
+    "resolvemos": {
+      "kicker": "What we solve",
+      "titulo": "Sound familiar?",
+      "subtitulo": "These are the situations we get called about most. If you see yourself in one of them, let's talk.",
+      "items": {
+        "manual": {
+          "titulo": "Manual processes that keep repeating",
+          "descripcion": "Copying data between spreadsheets, sending the same emails, checking things by hand. We automate it so your team can focus on what matters."
+        },
+        "mvp": {
+          "titulo": "An idea that needs to reach the market",
+          "descripcion": "You have the concept clear but not the product. We design and build a working MVP in weeks, ready to validate with real users."
+        },
+        "legacy": {
+          "titulo": "An old system holding the business back",
+          "descripcion": "Slow, hard to maintain and nobody dares touch it. We modernize it in stages, without stopping your operation or losing data."
+        },
+        "datos": {
+          "titulo": "Scattered information with no control",
+          "descripcion": "Every area uses its own tool and nothing connects. We integrate your systems and centralize your data in one reliable place."
+        }
+      }
+    },
+    "proceso": {
+      "kicker": "How we work",
+      "titulo": "Six phases, zero surprises",
+      "subtitulo": "A transparent cycle with concrete deliverables: you know which phase your project is in and see real progress every week.",
+      "cta": "See the full process"
+    }
   },
   "stats": {
     "proyectos": "Projects delivered",
@@ -111,7 +148,69 @@
     "kicker": "About us",
     "titulo": "Agility, solid code and an exceptional team",
     "p1": "At WindKode we build custom software and automate processes with the agility of the wind. We deliver lightweight, fast and accessible applications that solve each user's specific needs.",
-    "p2": "Behind every project there is solid code, best practices from the very first commit, and exceptional teamwork — with you as part of the process."
+    "p2": "Behind every project there is solid code, best practices from the very first commit, and exceptional teamwork — with you as part of the process.",
+    "p3": "We are a software development startup based in Bolivia. We work with businesses that want to leave manual tasks behind, launch a digital product or modernize what they already have, always with the same criteria: keep it simple, fast and well built.",
+    "cta_equipo": "Meet the team",
+    "viento": {
+      "kicker": "Our story",
+      "titulo": "Why the wind?",
+      "p1": "The wind doesn't ask for permission: it moves, it reaches everywhere and leaves no weight behind. That is how we want the software we build to be. No endless installs, no screens that take forever to load, no processes that depend on a single person.",
+      "p2": "WindKode was born from that idea: combining the speed of the wind with the solidity of code. We started as two developers solving concrete problems for nearby businesses, and today we are a team with specialized areas working with the same spirit as on day one."
+    },
+    "mision": {
+      "titulo": "Mission",
+      "texto": "To build custom software and automate processes that make companies' daily work lighter, with fast, accessible and well-crafted applications."
+    },
+    "vision": {
+      "titulo": "Vision",
+      "texto": "To be the go-to technology partner for businesses that want to grow without carrying heavy systems, proving that quality and agility can go together."
+    },
+    "valores": {
+      "kicker": "Our values",
+      "titulo": "What drives us",
+      "subtitulo": "Four principles that guide every decision, from the first meeting to the last deployment.",
+      "items": {
+        "transparencia": {
+          "titulo": "Transparency",
+          "descripcion": "You know what we are doing, what it costs and when it arrives. No surprises, no fine print."
+        },
+        "calidad": {
+          "titulo": "Quality",
+          "descripcion": "Clean, tested and documented code. We build to last, not to get by."
+        },
+        "cercania": {
+          "titulo": "Closeness",
+          "descripcion": "We speak your language, not tech jargon. We reply fast and explain every decision."
+        },
+        "mejora": {
+          "titulo": "Continuous improvement",
+          "descripcion": "Every project teaches us something. We measure, listen and adjust so the product grows with you."
+        }
+      }
+    },
+    "compromisos": {
+      "kicker": "Our commitment",
+      "titulo": "Working with you, not for you",
+      "subtitulo": "What you can expect from us on every project, big or small.",
+      "items": {
+        "entregas": {
+          "titulo": "Progress every week",
+          "descripcion": "You see the product working from the first weeks, not at the end. We adjust course with you at every delivery."
+        },
+        "codigo": {
+          "titulo": "The code is yours",
+          "descripcion": "From day one the repository and documentation belong to you. You will never depend on us to keep going."
+        },
+        "claridad": {
+          "titulo": "Clear budget and scope",
+          "descripcion": "We define together what gets built and what it costs before writing a single line. If something changes, we talk first."
+        },
+        "soporte": {
+          "titulo": "Support after launch",
+          "descripcion": "Going live is not the end. We monitor, maintain and evolve the product for as long as you need."
+        }
+      }
+    }
   },
   "filosofia": {
     "rapido": {

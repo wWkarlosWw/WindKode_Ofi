@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { CalendarDays } from '@lucide/vue'
+import { CalendarDays, ArrowRight, Clock } from '@lucide/vue'
 import { WLogo, CtaLink } from '@/components/ui'
 import { SectionHeader } from '@/components/layout'
 import { RevealOnScroll, ServiceCard, StatsBar, TechMarquee, CtaBanner, SocialLinks } from '@/components/shared'
-import { services } from '@/data'
+import { services, pillars, useCases, processSteps } from '@/data'
 
 const { t } = useI18n()
 
@@ -17,7 +17,9 @@ const featuredServices = services.slice(0, 3)
     <section class="relative flex min-h-svh flex-col justify-between pt-24 md:pt-28">
       <!-- Fondo: brillos con deriva lenta -->
       <div class="pointer-events-none absolute inset-0 overflow-hidden">
-        <div class="animate-drift absolute -top-40 right-0 size-[24rem] rounded-full bg-carbon/60 blur-[120px] md:size-[36rem]" />
+        <div
+          class="animate-drift absolute -top-40 right-0 size-[24rem] rounded-full bg-carbon/60 blur-[120px] md:size-[36rem]"
+        />
         <div
           class="animate-drift absolute bottom-0 left-0 size-[18rem] rounded-full bg-steel/10 blur-[120px] md:size-[28rem]"
           style="animation-delay: -9s; animation-direction: alternate-reverse"
@@ -110,6 +112,52 @@ const featuredServices = services.slice(0, 3)
       </RevealOnScroll>
     </section>
 
+    <!-- ============ MANIFIESTO (por qué WindKode) ============ -->
+    <section class="mx-auto max-w-7xl px-6 pt-16 md:pt-32">
+      <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
+        <RevealOnScroll>
+          <div>
+            <p class="mb-4 text-xs font-medium uppercase tracking-[0.35em] text-steel">
+              {{ t('home.manifiesto.kicker') }}
+            </p>
+            <h2 class="font-display text-metal text-5xl uppercase leading-[0.95] sm:text-6xl md:text-8xl">
+              <span class="block">{{ t('home.manifiesto.titulo_l1') }}</span>
+              <span class="block">{{ t('home.manifiesto.titulo_l2') }}</span>
+              <span class="block">{{ t('home.manifiesto.titulo_l3') }}</span>
+            </h2>
+            <p class="mt-6 max-w-lg leading-relaxed text-silver/70 md:mt-8 md:text-lg">
+              {{ t('home.manifiesto.texto') }}
+            </p>
+            <div class="mt-8">
+              <CtaLink to="/nosotros" variant="outline" :icon="ArrowRight">{{ t('home.manifiesto.cta') }}</CtaLink>
+            </div>
+          </div>
+        </RevealOnScroll>
+
+        <div class="flex flex-col gap-4">
+          <RevealOnScroll v-for="(pillar, i) in pillars" :key="pillar.key" :delay="120 + i * 120">
+            <div
+              class="group flex items-start gap-5 rounded-2xl border border-ink/10 bg-graphite/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-silver/30"
+            >
+              <span
+                class="flex size-12 shrink-0 items-center justify-center rounded-xl border border-ink/10 bg-ink/5 text-silver transition-colors group-hover:border-silver/40 group-hover:text-ink"
+              >
+                <component :is="pillar.icon" class="size-6" :stroke-width="1.5" />
+              </span>
+              <div>
+                <h3 class="font-semibold text-ink">
+                  {{ t(`filosofia.${pillar.key}.titulo`) }}
+                </h3>
+                <p class="mt-1.5 text-sm leading-relaxed text-silver/60">
+                  {{ t(`filosofia.${pillar.key}.descripcion`) }}
+                </p>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ SERVICIOS (adelanto) ============ -->
     <section class="mx-auto max-w-7xl px-6 py-16 md:py-32">
       <RevealOnScroll>
@@ -130,6 +178,89 @@ const featuredServices = services.slice(0, 3)
       <RevealOnScroll :delay="200">
         <div class="mt-10 flex justify-center">
           <CtaLink to="/servicios" variant="outline">{{ t('home.ver_servicios') }}</CtaLink>
+        </div>
+      </RevealOnScroll>
+    </section>
+
+    <!-- ============ QUÉ RESOLVEMOS ============ -->
+    <section class="mx-auto max-w-7xl px-6 pb-16 md:pb-32">
+      <RevealOnScroll>
+        <SectionHeader
+          align="split"
+          :kicker="t('home.resolvemos.kicker')"
+          :title="t('home.resolvemos.titulo')"
+          :subtitle="t('home.resolvemos.subtitulo')"
+        />
+      </RevealOnScroll>
+
+      <div class="grid gap-5 md:grid-cols-2">
+        <RevealOnScroll v-for="(useCase, i) in useCases" :key="useCase.key" :delay="i * 90">
+          <article
+            class="group flex h-full gap-5 rounded-2xl border border-ink/10 bg-ink/[0.03] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-silver/30 hover:bg-carbon/60 sm:p-8"
+          >
+            <span
+              class="flex size-12 shrink-0 items-center justify-center rounded-xl border border-ink/10 bg-ink/5 text-silver transition-colors group-hover:border-silver/40 group-hover:text-ink"
+            >
+              <component :is="useCase.icon" class="size-6" :stroke-width="1.5" />
+            </span>
+            <div>
+              <h3 class="text-lg font-semibold text-ink">
+                {{ t(`home.resolvemos.items.${useCase.key}.titulo`) }}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-silver/60">
+                {{ t(`home.resolvemos.items.${useCase.key}.descripcion`) }}
+              </p>
+            </div>
+          </article>
+        </RevealOnScroll>
+      </div>
+    </section>
+
+    <!-- ============ PROCESO (adelanto) ============ -->
+    <section class="mx-auto max-w-7xl px-6 pb-16 md:pb-32">
+      <RevealOnScroll>
+        <SectionHeader
+          align="split"
+          :kicker="t('home.proceso.kicker')"
+          :title="t('home.proceso.titulo')"
+          :subtitle="t('home.proceso.subtitulo')"
+        />
+      </RevealOnScroll>
+
+      <ol class="grid gap-px overflow-hidden rounded-3xl border border-ink/10 bg-ink/5 sm:grid-cols-2 lg:grid-cols-3">
+        <li v-for="(step, i) in processSteps" :key="step.key" class="h-full bg-abyss">
+          <RevealOnScroll :delay="i * 80" class="h-full">
+            <div class="group flex h-full flex-col gap-4 p-6 transition-colors hover:bg-carbon/60 sm:p-7">
+              <div class="flex items-center justify-between">
+                <span
+                  class="flex size-10 items-center justify-center rounded-xl border border-ink/10 bg-ink/5 text-silver transition-colors group-hover:border-silver/40 group-hover:text-ink"
+                >
+                  <component :is="step.icon" class="size-5" :stroke-width="1.5" />
+                </span>
+                <span class="font-display text-3xl text-ink/10 transition-colors group-hover:text-ink/25">
+                  {{ String(i + 1).padStart(2, '0') }}
+                </span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-ink">
+                  {{ t(`proceso.pasos.${step.key}.titulo`) }}
+                </h3>
+                <p class="mt-1.5 text-sm leading-relaxed text-silver/60">
+                  {{ t(`proceso.pasos.${step.key}.descripcion`) }}
+                </p>
+              </div>
+              <span class="mt-auto flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] text-silver/50">
+                <Clock class="size-3" />
+                {{ t(`proceso.pasos.${step.key}.duracion`) }}
+              </span>
+            </div>
+          </RevealOnScroll>
+        </li>
+      </ol>
+
+      <RevealOnScroll :delay="200">
+        <div class="mt-10 flex justify-center">
+          <CtaLink to="/servicios#proceso" variant="outline" :icon="ArrowRight">{{ t('home.proceso.cta') }}</CtaLink>
         </div>
       </RevealOnScroll>
     </section>

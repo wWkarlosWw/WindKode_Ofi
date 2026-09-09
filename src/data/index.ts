@@ -19,6 +19,14 @@ import {
   FlaskConical,
   Rocket,
   RefreshCw,
+  Repeat,
+  Sparkles,
+  Archive,
+  ChartNoAxesCombined,
+  Eye,
+  Gem,
+  MessagesSquare,
+  TrendingUp,
 } from '@lucide/vue'
 
 export interface ServiceItem {
@@ -72,6 +80,37 @@ export const teamAreas: TeamAreaItem[] = [
   { key: 'soporte', icon: Headset },
   { key: 'infraestructura', icon: ServerCog },
 ]
+
+export interface UseCaseItem {
+  key: 'manual' | 'mvp' | 'legacy' | 'datos'
+  icon: Component
+}
+
+/** Situaciones típicas que resolvemos (sección «Qué resolvemos» de la home). Textos en `home.resolvemos.items.<key>`. */
+export const useCases: UseCaseItem[] = [
+  { key: 'manual', icon: Repeat },
+  { key: 'mvp', icon: Sparkles },
+  { key: 'legacy', icon: Archive },
+  { key: 'datos', icon: ChartNoAxesCombined },
+]
+
+export interface ValueItem {
+  key: 'transparencia' | 'calidad' | 'cercania' | 'mejora'
+  icon: Component
+}
+
+/** Valores de la empresa (/nosotros). Textos en `nosotros.valores.items.<key>`. */
+export const values: ValueItem[] = [
+  { key: 'transparencia', icon: Eye },
+  { key: 'calidad', icon: Gem },
+  { key: 'cercania', icon: MessagesSquare },
+  { key: 'mejora', icon: TrendingUp },
+]
+
+export type CommitmentKey = 'entregas' | 'codigo' | 'claridad' | 'soporte'
+
+/** Compromisos con el cliente (/nosotros), numerados. Textos en `nosotros.compromisos.items.<key>`. */
+export const commitments: CommitmentKey[] = ['entregas', 'codigo', 'claridad', 'soporte']
 
 export interface PillarItem {
   key: 'rapido' | 'seguro' | 'colaborativo'
